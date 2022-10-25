@@ -11,7 +11,6 @@ import time
 from scipy.stats import norm
 from sklearn.gaussian_process.kernels import ExpSineSquared
 
-##training set
 # "N is no. of dimensions of the problem"
 N=14
 low_lim=np.zeros(N,dtype=int)
@@ -21,12 +20,13 @@ points=[]
 df_n=pandas.read_csv('data_frame_tandem.csv')
 df_n.columns=['start','end','total points']
 
+##training set
 X=np.empty(N,dtype=object)
 for i in range(N):
     X[i]=np.random.randint(df_n.iloc[i,0],df_n.iloc[i,1],1).astype(int)
-X[8]=260000 #c_Si fixed prefernetially
+X[8]=np.random.randint(15,27,1)*10000 # for c_si it only makes sense experimentally to have multiples of 10000 
 
-#Copying this data point
+#Copying the set 
 X_new=X.astype(int)
 
 #Converting the array into a data frame
@@ -34,32 +34,22 @@ df=pandas.DataFrame()
 for i in range(N):
     df[i]=X[i]
 
-## pre-processing of data i.e. conversion into standard normal distribution as
-machine learning libraries including sklearn run efficiently on pre-processed data.
+## pre-processing of data i.e. conversion into standard normal distribution as machine learning libraries including sklearn run efficiently on pre-processed data.
 
 df=df.astype(float)
-
 for i in range(N):
     d = df[i].to_numpy()
     d = d.reshape(-1,1)
     scaler_x = preprocessing.StandardScaler().fit(d)
     df[i] = scaler_x.transform(d)
 
-
 ## Function to generate the test set or scanning set. 
-This produces a huge array
-consisting of numerous random combinations 
-which are all data points on which the
-GPR tries to predict the current values and the variances (mu and sigma). 
-
 def scan_set_gen():
     dftest=pandas.DataFrame()
     temp=np.empty(N, dtype=object)
     for i in range(N):
         temp[i]=np.random.randint(df_n.iloc[i,0],df_n.iloc[i,1],df_n.iloc[i,2]).astype(int)
-   
-    temp[8]=np.random.randint(15,27,10000000)
-    temp[8]=temp[8]*10000
+    temp[8]=temp[8]*10000 
     for i in range (N):
         dftest[i]=temp[i].flatten()
     dftest = dftest.astype(float)
@@ -72,7 +62,7 @@ def scan_set_gen():
     return dftest,scaler
 
 c=0
-iter=100000
+iter=10000
 maximum_tracker=np.zeros((iter))
 
 start_time = time.time()
@@ -160,6 +150,8 @@ for t in range(iter):
 
     #F_train = np.append(F_train, (F[tuple(X_new[i] for i in range(len(X_new)))]))
     print(curr,"          curr at   ",X_new_copy)
+    
+    #Find Maxima
     if (abs(curr - f_max)/f_max) < 1e-4:
         tick= True
         print("Location         "+"Maxima")
@@ -175,13 +167,5 @@ for t in range(iter):
     if  c==15:
         break
 
-    maximum_tracker[t] = np.max(F_train)
-
-
-plt.plot(maximum_tracker[0:last_iter], marker='+')
-plt.title("Z_value vs iterations")
-plt.xlabel("Iterations")
-plt.ylabel("Z_value")
-plt.show()
 
 print("--- Total seconds ---" % (time.time() - start_time))
