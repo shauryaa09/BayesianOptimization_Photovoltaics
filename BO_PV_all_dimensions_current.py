@@ -16,7 +16,7 @@ from sklearn.gaussian_process.kernels import ExpSineSquared
 
 
 ##training set
-# "N is no. of dimensions of the problem"
+# N is no. of dimensions of the problem
 print("Warning: Input only integers")
 print("Input the total number of layers")
 N = int(input())
