@@ -161,11 +161,7 @@ for t in range(iter):
     p = (mu - f_max) / (sigma)
     CDF = norm.cdf(p)
     PDF = norm.pdf(p)
-
-
     EI = (mu - f_max) * CDF + sigma * PDF
-
-
     EI[np.where(sigma < 1e-4)] = 0
 
     # Locating and storing the next query point
@@ -181,7 +177,7 @@ for t in range(iter):
 
     print(curr, "          curr at   ", X_new_copy)
     
-    ##Checking if maxima has been reached and convergence achieved by making sure each new value of current is 1e-4 close to the previous value continuously 15 times
+    ##Checking if maxima has been reached and convergence achieved by making sure each new value of current is 1e-3 close to the previous value continuously 15 times
     if (abs(curr - f_max)) < 1e-3:
         tick = True
         print("Location         "+"Maxima")
