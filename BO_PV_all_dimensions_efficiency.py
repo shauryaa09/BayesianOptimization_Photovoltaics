@@ -128,6 +128,7 @@ for t in range(iter):
             l1 = float(line[:11])
         if (ct == 13):
             l2 = float(line[:11])
+    ## Matlab engine started for electrical simulation 
     eng = matlab.engine.start_matlab()
     thickness = float(X_new[1])
     finger_no = float(2)
