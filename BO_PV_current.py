@@ -149,7 +149,10 @@ for t in range(iter):
     ##implementing algorithm
     f_max = np.max(F_train)
     dftest, scaler = scan_set_gen()
-    ## GPR fit   ##Refer to sklearn library to understand the arguments sent into the function
+    ## GPR fit  Refer to sklearn library to understand the arguments sent into the function. kernel = None stands for the standard RBF kernel
+    ## optimizer finds the best hyperparameters of the kernel and restarts are the number of times to try to optimize the hyperparameters.
+    ## Alpha is a diagonal matrix added to kernel matrix to make it positive definite in all circumstances. Random state is passed as an integer to reproduce results 
+    ## across multiple function calls and y or function values are normalized
     gpr = gp.GaussianProcessRegressor(kernel=None, optimizer="fmin_l_bfgs_b", n_restarts_optimizer=10, alpha=1e-3,
                                       normalize_y=True, random_state=2).fit(df, F_train)
 
