@@ -1,3 +1,6 @@
+## Copyright, All rights reserved.
+## This code is the intellectual property of Shaurya Anand.
+
 from os.path import exists
 import matlab.engine
 
