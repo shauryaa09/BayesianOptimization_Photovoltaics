@@ -1,0 +1,93 @@
+#******************************************************************************#
+#                      CROWM v3.3 SIMULATION - INPUT FILE                      #
+#******************************************************************************#
+#
+# Notes:
+#
+
+# GENERAL SIMULATION PARAMETERS:
+#-------------------------------------------------------------------------------
+Illumination spectrum file:            Spectrum_AM1.5.spc
+Illumination side (front/rear):        0
+Illumination type (direct/diffuse):    0
+Incident zenith angle [deg]:           0
+Incident azimuth angle [deg]:          0
+Incident TE/(TE+TM) ratio:             0.5
+Scale spectrum by the zenith angle:    1
+Wavelength start [nm]:                 300
+Wavelength step [nm]:                  10
+Wavelength stop [nm]:                  1200
+Period of plotted rays:                0
+Create package of simulation files:    1
+Number of reserved computer cores:     0
+
+# RAY TRACING PARAMETERS:
+#-------------------------------------------------------------------------------
+Ray tracing precision (P_min/P_in):    1e-3
+Ray tracing resolution (step) [nm]:    10
+Import resolution from texture files:  1
+Number of incident rays (X axis):      10
+Number of incident rays (Y axis):      10
+Ray matrix shift factor (X axis):      0.5
+Ray matrix shift factor (Y axis):      0.5
+Trace entire thicknesses of layers:    0
+Max number of total R/T events:        0
+Max number of horizontal passes:       0
+Max number of internal reflections:    0
+
+# RANDOMIZATION PARAMETERS:
+#-------------------------------------------------------------------------------
+Random number generator seed:          0
+Random position of incident rays:      0
+Random treatment of R/T events:        0
+Random treatment of A events:          0
+
+# TEXTURE AND OUTPUT FILE NAMES:                                      (OPTIONAL)
+#-------------------------------------------------------------------------------
+Base name of the output files:         Pk_Si_tandem_7_30_138_15_241_16_28_10_260000_13_22_382_999
+List of texture files (top-down):
+Pyramidal_random_top.txt
+Pyramidal_random_bot.txt
+ 
+# STRUCTURE DEFINITION:
+#-------------------------------------------------------------------------------
+Lateral domain periodicity:            2
+Forced period (X axis) [um]:           0
+Forced period (Y axis) [um]:           0
+Fit textures to the periods:           1
+Ray-traced incoherent layers:          10
+Isotropic TF layer growth ratio:       1
+
+# List of nk files of the layers (top-down; including inc. & transm. layers):
+air.nk
+MgF2_interp.nk
+IZOpvlab_new_63nm.nk
+SnO2ALD_interp.nk
+C60_interp.nk
+jw_pero3cat_2to1_match_interp.nk
+ITO.nk
+n_a_Si.nk
+i_a_Si.nk
+c_Si.nk
+i_a_Si.nk
+p_a_Si.nk
+MgF2.nk
+Ag.nk
+air.nk
+ 
+# Layer thicknesses [nm] (top-down; inc. & transm. layers should be set to 0):
+0
+7
+30
+138
+15
+241
+16
+28
+10
+260000
+13
+22
+382
+999
+0

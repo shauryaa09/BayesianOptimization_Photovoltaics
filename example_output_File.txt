@@ -1,0 +1,48 @@
+Jsc [mA/cm2]
+ 
+3.31682787   Rtot
+0.00234781   air (front)
+0.00383792   MgF2_interp
+0.75563258   IZOpvlab_new_63nm
+0.64622971   SnO2ALD_interp
+1.03964724   C60_interp
+19.37691236   jw_pero3cat_shift20_interp
+0.29136535   ITO
+0.09392221   n_a_Si
+0.01362543   i_a_Si
+20.73817772   c_Si
+0.00000000   i_a_Si
+0.00000000   p_a_Si
+0.00000000   MgF2
+0.25024845   Ag
+0.00002632   air (back)
+0.00000000   Ttot
+43.21191957   1-Rtot
+-------------------------
+46.52880097   Jsc Total Sum
+46.52874744   Jsc Spectrum Sum
+ 
+ 
+Jsc relative [%]
+ 
+7.12855612   Rtot
+0.00504594   air (front)
+0.00824848   MgF2_interp
+1.62401230   IZOpvlab_new_63nm
+1.38888267   SnO2ALD_interp
+2.23441914   C60_interp
+41.64503329   jw_pero3cat_shift20_interp
+0.62620502   ITO
+0.20185846   n_a_Si
+0.02928390   i_a_Si
+44.57067697   c_Si
+0.00000000   i_a_Si
+0.00000000   p_a_Si
+0.00000000   MgF2
+0.53783620   Ag
+0.00005656   air (back)
+0.00000000   Ttot
+92.87144388   1-Rtot
+-------------------------
+100.00011505   Jsc Total Sum
+100.00000000   Jsc Spectrum Sum
